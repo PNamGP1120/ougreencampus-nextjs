@@ -12,9 +12,9 @@ export default function CreateContentForm() {
 
     // ===== FORM STATE =====
     const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    const [image, setImage] = useState<string>("");
-    const [categoryId, setCategoryId] = useState<number | null>(null);
+    const [body, setBody] = useState<string>(""); // ✅ chắc chắn string
+    const [image, setImage] = useState<string | undefined>(undefined);
+    const [categoryId, setCategoryId] = useState<number | undefined>(undefined);
     const [tagIds, setTagIds] = useState<number[]>([]);
     const [loading, setLoading] = useState(false);
     const [uploadingImage, setUploadingImage] = useState(false);
@@ -32,9 +32,7 @@ export default function CreateContentForm() {
     // ===== TOGGLE TAG =====
     const toggleTag = (id: number) => {
         setTagIds((prev) =>
-            prev.includes(id)
-                ? prev.filter((t) => t !== id)
-                : [...prev, id]
+            prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
         );
     };
 
@@ -43,15 +41,13 @@ export default function CreateContentForm() {
         setUploadingImage(true);
         try {
             const url = await uploadToCloudinary(file);
-            console.log("Uploaded image:", url); // 👈 debug
-            setImage(url); // 👈 BẮT BUỘC
-        } catch (e) {
+            setImage(url); // ✅ luôn là string
+        } catch {
             alert("Upload ảnh đại diện thất bại");
         } finally {
             setUploadingImage(false);
         }
     };
-
 
     // ===== SUBMIT =====
     const submit = async () => {
@@ -63,16 +59,19 @@ export default function CreateContentForm() {
 
         try {
             const payload = {
-                title,
-                body,
-                image: image || undefined,
-                category_id: categoryId,
-                tags: tagIds.length ? tagIds : undefined,
+                title: title.trim(),
+                body, // string
+                image,
+                category_id: categoryId, // number
+                tags: tagIds.length > 0 ? tagIds : undefined,
             };
 
             const res = await createContent(payload);
+
+            // ✅ điều hướng sang trang chi tiết
             router.push(`/contents/${res.id}`);
-        } catch {
+        } catch (e) {
+            console.error(e);
             alert("Tạo bài viết thất bại");
         } finally {
             setLoading(false);
@@ -103,7 +102,7 @@ export default function CreateContentForm() {
                     <img
                         src={image}
                         alt="Preview"
-                        className="mb-3 h-40 rounded-xl object-cover"
+                        className="mb-3 h-40 w-full rounded-xl object-cover"
                     />
                 )}
 
@@ -129,7 +128,9 @@ export default function CreateContentForm() {
                 className="w-full rounded-xl border px-4 py-3"
                 value={categoryId ?? ""}
                 onChange={(e) =>
-                    setCategoryId(e.target.value ? Number(e.target.value) : null)
+                    setCategoryId(
+                        e.target.value ? Number(e.target.value) : undefined
+                    )
                 }
             >
                 <option value="">-- Chọn danh mục --</option>
@@ -164,7 +165,7 @@ export default function CreateContentForm() {
                 </div>
             </div>
 
-            {/* ===== BODY (CKEDITOR) ===== */}
+            {/* ===== BODY ===== */}
             <div>
                 <p className="mb-2 font-medium text-gray-700">Nội dung</p>
                 <Editor value={body} onChangeHtml={setBody} />

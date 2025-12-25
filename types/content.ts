@@ -1,21 +1,26 @@
-export type Category = {
+export interface ContentAuthor {
     id: number;
     name: string;
-};
+}
 
-export type Tag = {
+export interface ContentCategory {
     id: number;
     name: string;
-};
+}
 
+export interface ContentTag {
+    id: number;
+    name: string;
+}
 
-export type Content = {
+export interface Content {
     id: number;
     title: string;
-    body?: string;
+    body?: string;        // ✅ BẮT BUỘC optional
     image?: string;
-    category_id?: number;
-    category?: Category;
-    tags?: Tag[];
     created_at?: string;
-};
+
+    author?: ContentAuthor;
+    category?: ContentCategory;
+    tags?: ContentTag[];
+}

@@ -3,33 +3,6 @@ import Footer from "@/components/layout/Footer";
 import { getContentServer } from "@/lib/contents.server";
 import { DEFAULT_CONTENT_IMAGE } from "@/constants/image";
 
-interface ContentAuthor {
-    id: number;
-    name: string;
-}
-
-interface ContentCategory {
-    id: number;
-    name: string;
-}
-
-interface ContentTag {
-    id: number;
-    name: string;
-}
-
-interface Content {
-    id: number;
-    title: string;
-    body: string;
-    image?: string;
-    created_at?: string;
-
-    author?: ContentAuthor;
-    category?: ContentCategory;
-    tags?: ContentTag[];
-}
-
 
 export default async function ContentDetailPage({
                                                     params,
@@ -52,8 +25,7 @@ export default async function ContentDetailPage({
         );
     }
 
-    let content: Content;
-
+    let content;
     try {
         content = await getContentServer(contentId);
     } catch {
