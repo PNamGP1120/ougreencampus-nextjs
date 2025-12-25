@@ -2,32 +2,21 @@
 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import CloudinaryUploadAdapter from "./CloudinaryUploadAdapter";
+import type { Editor } from "@ckeditor/ckeditor5-core";
 
-export default function EditorClient({
-                                         value,
-                                         onChangeHtml,
-                                     }: {
+interface Props {
     value: string;
-    onChangeHtml: (html: string) => void;
-}) {
+    onChangeHtml: (data: string) => void;
+}
+
+export default function EditorClient({ value, onChangeHtml }: Props) {
     return (
         <CKEditor
-            editor={ClassicEditor}
+            editor={ClassicEditor as unknown as { create: (...args: any[]) => Promise<Editor> }}
             data={value}
-            config={{
-                extraPlugins: [
-                    function MyUploadAdapterPlugin(editor: any) {
-                        editor.plugins
-                            .get("FileRepository")
-                            .createUploadAdapter = (loader: any) => {
-                            return new CloudinaryUploadAdapter(loader);
-                        };
-                    },
-                ],
-            }}
             onChange={(_, editor) => {
-                onChangeHtml(editor.getData());
+                const data = editor.getData();
+                onChangeHtml(data);
             }}
         />
     );
