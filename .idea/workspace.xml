@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d65d9e5d-3639-4117-93bc-30c80a7ab829" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(protected)/contents/[id]/edit/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(protected)/contents/create/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(protected)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/contents/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/contents/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/content/ContentCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/content/ContentFilter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/content/ContentForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/content/CreateContentForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/content/Pagination.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useContents.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useRequireAuth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useRequireRole.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/contents.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/contents.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/cookies.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/users.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/content.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/login/LoginClient.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/cookies.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/cookies.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/proxy.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,10 +107,36 @@
       <workItem from="1766343773271" duration="2609000" />
       <workItem from="1766352392249" duration="8516000" />
       <workItem from="1766644167863" duration="9700000" />
+      <workItem from="1766679104170" duration="11064000" />
+      <workItem from="1766712028083" duration="3416000" />
+      <workItem from="1766813012408" duration="5338000" />
+      <workItem from="1766832597547" duration="882000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/(auth)/login/page.tsx</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

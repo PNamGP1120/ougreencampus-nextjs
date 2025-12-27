@@ -6,6 +6,13 @@ import type { User, Role, UserStatus } from "@/types/auth";
  * GET /api/users/me
  */
 export async function getMe() {
+    if (typeof window !== "undefined") {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            throw new Error("Not authenticated");
+        }
+    }
+
     const res = await api.get<ApiResponse<User>>("/users/me");
     return res.data.data;
 }
@@ -60,7 +67,9 @@ export async function listUsers(params?: {
  * GET /api/users/:id (Admin)
  */
 export async function getUserById(id: number) {
-    const res = await api.get<ApiResponse<User>>(`/users/${id}`);
+    const res = await api.get<ApiResponse<User>>(
+        `/users/${id}`
+    );
     return res.data.data;
 }
 

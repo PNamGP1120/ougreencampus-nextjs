@@ -15,19 +15,42 @@ export async function register(payload: {
         "/auth/register",
         payload
     );
+
+    if (!res.data.success) {
+        throw new Error(res.data.error || "Register failed");
+    }
+
     return res.data.data;
 }
 
 /**
  * POST /api/auth/login
  */
-export async function login(payload: {
-    email: string;
-    password: string;
-}) {
+export async function login(email: string, password: string) {
     const res = await api.post<ApiResponse<LoginResult>>(
         "/auth/login",
-        payload
+        { email, password }
     );
-    return res.data.data; // { token, user }
+
+    if (!res.data.success) {
+        throw new Error(res.data.error || "Login failed");
+    }
+
+    const { token, user } = res.data.data;
+
+    // ✅ CLIENT ONLY
+    if (typeof window !== "undefined") {
+        localStorage.setItem("token", token);
+    }
+
+    return { token, user };
+}
+
+/**
+ * Logout helper
+ */
+export function logout() {
+    if (typeof window !== "undefined") {
+        localStorage.removeItem("token");
+    }
 }
