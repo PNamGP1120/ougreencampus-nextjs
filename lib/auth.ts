@@ -17,7 +17,7 @@ export async function register(payload: {
     );
 
     if (!res.data.success) {
-        throw new Error(res.data.error || "Register failed");
+        throw new Error(res.data.message || "Register failed");
     }
 
     return res.data.data;
@@ -33,7 +33,7 @@ export async function login(email: string, password: string) {
     );
 
     if (!res.data.success) {
-        throw new Error(res.data.error || "Login failed");
+        throw new Error(res.data.message || "Login failed");
     }
 
     const { token, user } = res.data.data;
