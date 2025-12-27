@@ -16,6 +16,7 @@ export default function LoginForm() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // 🔥 BẮT BUỘC
+        console.log("SUBMIT LOGIN");
         if (loading) return;
 
         setError(null);
