@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { login } from "@/lib/auth";
+
 
 export default function LoginForm() {
     const router = useRouter();
@@ -13,6 +14,9 @@ export default function LoginForm() {
     const [password, setPassword] = useState("123456");
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        console.log("LOGIN FORM HYDRATED");
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // 🔥 BẮT BUỘC
