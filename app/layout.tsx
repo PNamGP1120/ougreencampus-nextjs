@@ -1,6 +1,6 @@
 // app/layout.tsx
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type {Metadata} from "next";
+import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +25,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="vi">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body
+            className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-white antialiased text-gray-900`}
+        >
         {children}
         </body>
         </html>

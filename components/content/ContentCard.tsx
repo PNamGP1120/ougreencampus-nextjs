@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Content } from "@/types/content";
-import { DEFAULT_IMAGE } from "@/constants/image";
+import {DEFAULT_CONTENT_IMAGE} from "@/constants/image";
 
 export default function ContentCard({
                                         content,
                                     }: {
     content: Content;
 }) {
-    const image = content.image || DEFAULT_IMAGE;
+    const image = content.image || DEFAULT_CONTENT_IMAGE;
 
     return (
         <div className="overflow-hidden rounded border bg-white shadow-sm">
